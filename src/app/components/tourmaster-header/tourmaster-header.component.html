@@ -1,0 +1,21 @@
+<!-- Tourmaster header -->
+<section class="section section-tourmasterheader grey-text text-lighten-5 center">
+  <header class="band-name-container">
+    <h1 class="band-name">SYSTEM SHUTDOWN</h1>
+    <h4>TourMaster Panel</h4>
+  </header>
+  <div class="container ">
+    <div class="row valign-wrapper">
+      <!-- login email -->
+      <div class="col s6 ">
+        <p *ngIf="isLoggedIn">You are logged in as: {{ loggedInUser }}</p>
+      </div>
+      <!-- logout button -->
+      <div class="col s6 ">
+        <button *ngIf="isLoggedIn" (click)="onLogoutClick()"
+          class="btn  cancel grey darken-4 orange-text text-darken-4 right">Logout</button>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>

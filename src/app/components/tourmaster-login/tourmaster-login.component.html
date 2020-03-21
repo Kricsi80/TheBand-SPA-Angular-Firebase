@@ -1,0 +1,30 @@
+<!-- Tourmaster login -->
+<section class="section section-login">
+  <div class="container  valign-wrapper">
+    <div class="row">
+      <div class="col m10 offset-m1">
+        <div class="card grey lighten-5 grey-text text-darken-4">
+          <div class="card-content">
+            <div class="card-title">
+              <h2 class="center-align">TourMaster Login</h2>
+            </div>
+            <!-- FORM -->
+            <form (submit)="onSubmit()">
+              <label for="email" class="grey-text">Email</label>
+              <input type="email" name="email" id="email" [(ngModel)]="email" required placeholder="Enter your email">
+              <label for="password" class="grey-text">password</label>
+              <input type="password" name="password" id="password" [(ngModel)]="password" required
+                placeholder="Enter your password">
+              <input type="submit" value="Log In" class="btn btn-large grey darken-4">
+              <a routerLink="/about" class="btn btn-large grey darken-4 right">Back</a>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- copyright -->
+      <div class="col s12 center section copyright grey-text text-lighten-4">
+        <small>kissr &copy; 2019</small>
+      </div>
+    </div>
+  </div>
+</section>

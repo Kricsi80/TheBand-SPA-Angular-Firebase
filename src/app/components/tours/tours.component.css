@@ -1,0 +1,72 @@
+section {
+  background-color: #000000;
+  color: #fafafa;
+}
+
+
+p {
+  text-transform: uppercase;
+}
+
+.subtitle, .section-tours, .tourcontainer {
+  margin-top: 0;
+}
+
+#tcity, #tvenue {
+  text-align: left;
+}
+
+#tdate {
+  text-align: center;
+}
+
+.non_active {
+  cursor: default;
+}
+
+.tourcontainer .row:not(:last-child)::after {
+  content: "";
+  background-color: #212121;
+  height: 2px;
+  width: 80%;
+  margin: auto;
+}
+
+.btn {
+  margin: 10px 0;
+}
+
+.cancel {
+  border: 1px solid #e65100;
+}
+
+
+/* Notours template */
+.notours {
+  background: url('../../../assets/img/notours/notours_bg.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 300px;
+  position: relative;
+}
+
+/* Mobile settings */
+
+@media(max-width: 992px) {
+
+  #tvenue {
+    text-align: center;
+  }
+  #tdate {
+    text-align: right;
+  }
+  #tcity {
+    text-align: left;
+  }
+}
+
+@media(max-width: 600px) {
+  #tdate, #tcity, #tvenue {
+  text-align: center;
+ }
+}

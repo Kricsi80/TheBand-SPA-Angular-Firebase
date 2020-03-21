@@ -1,0 +1,66 @@
+.main-header {
+  background: url('../../../assets/img/landing_img/landing_bg_hd-min.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  min-height: 600px;
+  position: relative;
+}
+
+.band-name {
+  font-family: 'Dokdo', cursive;
+  font-size: 8rem;
+  line-height: 0.75;
+}
+
+.content {
+ padding-top: 7rem;
+}
+
+span {
+  font-weight: lighter;
+}
+
+strong {
+  font-size: 4rem;
+}
+
+.to-main-container {
+  position: absolute;
+  bottom: 10%;
+}
+
+/* Mobile settings */
+
+@media(max-width: 500px) {
+  .band-name {
+    font-family: 'Dokdo', cursive;
+    font-size: 4rem;
+  }
+
+  strong {
+    font-size: 2rem;
+  }
+
+  span {
+    font-size: 1rem;
+  }
+  
+  .content {
+    padding-top: 0 !important;
+   }
+}
+
+@media(max-width: 1470px) {
+  .content {
+    padding-top: 2rem;
+   }
+}
+
+@media(max-height: 770px){
+  .to-main-container {
+    position: static;
+  }
+  
+}
+

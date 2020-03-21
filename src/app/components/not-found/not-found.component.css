@@ -1,0 +1,8 @@
+.section-notfound {
+  background: url(../../../assets/img/notfound/notfound_bg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  min-height: 250px;
+  position: relative;
+}

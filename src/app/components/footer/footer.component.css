@@ -1,0 +1,33 @@
+.footer-content {
+  padding: 0;
+}
+
+.footer-content h5 {
+  padding-bottom: 2rem;
+  text-transform: uppercase;
+  font-weight: lighter;
+  font-size: 1.5rem;
+}
+
+#social, #tourlink {
+  padding-bottom: 0;
+}
+
+#social a i:hover {
+  color: #d50000;
+}
+
+.copyright {
+  padding-top: 0 ;
+}
+
+#tourmasterlink {
+  padding-top: 4rem;
+}
+
+/* Mobile settings */
+@media(max-width: 992px) {
+  #tourmasterlink {
+    padding-top: 2rem;
+  }
+}

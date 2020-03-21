@@ -1,0 +1,44 @@
+<section class="section section-navigation grey-text text-lighten-5 center">
+  <!-- overlay -->
+  <div class="nav-overlay">
+    <header class="band-name-container">
+      <h1 class="band-name">SYSTEM SHUTDOWN</h1>
+    </header>
+    <!-- Navigation -->
+    <div class="navbar">
+      <!-- main nav -->
+      <nav class="transparent z-depth-0 nav-extended">
+        <div class="container">
+          <div class="nav-wrapper">
+            <a class="brand-logo hide-on-large-only">take a look around</a>
+            <a class="brand-logo show-on-large hide-on-med-and-down">take a look around</a>
+            <a (click)="toggleMenu()" class="sidenav-trigger">
+              <i class="fas fa-bars"></i>
+            </a>
+            <ul class="right hide-on-med-and-down center-align">
+              <li>
+                <a routerLink="/about" class="">The Band</a>
+              </li>
+              <li>
+                <a routerLink="/tours" class="">Tours</a>
+              </li>
+              <li>
+                <a routerLink="/media" class="">Media</a>
+              </li>
+            </ul>
+          </div>
+          <!-- Mobile nav -->
+          <div id="mobile-nav" class="nav-content hide-on-large-only hidden">
+            <ul class="tabs tabs-transparent">
+              <li class="tab"> <a routerLink="/about" class="grey-text text-lighten-5">The Band</a>
+              </li>
+              <li class="tab"> <a routerLink="/tours" class="grey-text text-lighten-5">Tours</a>
+              </li>
+              <li class="tab"><a routerLink="/media" class="grey-text text-lighten-5">Media</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,52 @@
+<app-navigation></app-navigation>
+<!-- Section title -->
+<section class="section grey-text text-lighten-4">
+  <div class="container">
+    <div class="row">
+      <h1 class="center">Tours</h1>
+    </div>
+  </div>
+</section>
+<!-- Tour list -->
+<section class="section section-tours center">
+  <div class="container tourcontainer" *ngIf="tours?.length > 0; else noTours">
+    <!-- TOUR row -->
+    <div class="row" *ngFor="let tour of tours">
+      <div class="col s12 m5 l3">
+        <p id="tdate">{{getDateFromtourDate(tour.tourDate)}}</p>
+      </div>
+      <div class="col s12 m5 offset-m2 l2">
+        <p id="tcity">{{tour.tourCity}}</p>
+      </div>
+      <div class="col s12 m4 l2">
+        <p id="tvenue">{{tour.tourVenue}}</p>
+      </div>
+      <div class="col s12 m4 l2">
+        <button *ngIf="tour.isUpdated"
+          class="non_active btn grey darken-4 orange-text text-darken-4 cancel">Changed!</button>
+      </div>
+      <div class="col s12 m4 l3">
+        <button *ngIf="tour.isExpired" class="non_active btn btn-small grey darken-4">You Missed it</button>
+        <button *ngIf="!tour.isExpired && tour.isCancelled"
+          class="non_active btn btn-small  btn-small orange darken-4">Cancelled</button>
+        <a *ngIf="!tour.isExpired && !tour.isCancelled" href="{{tour.ticketLink}}" class="btn btn-small red accent-4 "
+          target="_blank">Buy Ticket</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- IF Tours[] is empty -->
+  <ng-template #noTours>
+    <div class="container  notours ">
+      <div class="overlay">
+        <div class="row ">
+          <div class="col s12">
+            <p class="center-align grey-text text-lighten-4 notourtext">Currently We Have No Ongoing Tours</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</section>
+
+<app-footer></app-footer>

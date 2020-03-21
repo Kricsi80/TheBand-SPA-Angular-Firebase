@@ -1,0 +1,23 @@
+* {
+  font-weight: lighter;
+}
+
+section {
+  background-color: #000000;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.text-bg {
+  background-color:rgba(0, 0, 0, 0.5);
+}
+
+.member-bio h3 {
+  margin-top: 0;
+}
+
+.status, .subtext {
+  text-transform: uppercase;
+}

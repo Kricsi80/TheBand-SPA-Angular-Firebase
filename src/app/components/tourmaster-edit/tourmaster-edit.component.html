@@ -1,0 +1,118 @@
+<app-tourmaster-header></app-tourmaster-header>
+
+<!-- Tourmaster edit -->
+<div class="container section">
+  <div class="card">
+    <div class="card-content grey lighten-2 ">
+      <span class="card-title center-align">Edit Tour</span>
+      <!-- FORM -->
+      <div class="row">
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm.value)" class="col s12">
+
+          <div class="row">
+            <!-- DATE INPUT -->
+            <div class="input-field col s12 m6">
+              <input [attr.disabled]="isExpired ? '' : null" formControlName="tourDate" id="tour_date" type="date">
+              <label for="tour_date" class="active grey-text">Tour Date</label>
+              <!-- helper texts -->
+              <span *ngIf="f.tourDate.value  && !f.tourDate.errors && !isExpired" class="helper-text green-text">Tour
+                Date is
+                ok</span>
+              <span *ngIf="f.tourDate.touched && f.tourDate.errors && f.tourDate.errors.ValidateDate"
+                class="helper-text red-text">The date hae to be between tomorrow and 31/12/2029</span>
+
+              <span *ngIf="f.tourDate.touched && f.tourDate.errors && f.tourDate.errors.required"
+                class="helper-text red-text">Tour Date required</span>
+            </div>
+            <!-- TIME INPUT -->
+            <div class="input-field col s12 m6">
+              <input [attr.disabled]="isExpired ? '' : null" formControlName="tourTime" id="tour_time" type="time">
+              <label for="tour_time" class="active grey-text">Tour Time</label>
+              <!-- helper texts -->
+              <span *ngIf="f.tourTime.value  && !f.tourTime.errors && !isExpired" class="helper-text green-text">Tour
+                Time is
+                ok</span>
+              <span *ngIf="f.tourTime.touched && f.tourTime.errors && f.tourTime.errors.required"
+                class="helper-text red-text">Tour Time required</span>
+            </div>
+            <!-- city INPUT -->
+            <div class="input-field col s12 m6">
+              <input [attr.disabled]="isExpired ? '' : null" formControlName="tourCity" id="tour_city" type="text">
+              <label for="tour_city" class="active grey-text">Tour City</label>
+              <!-- helper texts -->
+              <span *ngIf="f.tourCity.value  && !f.tourCity.errors && !isExpired" class="helper-text green-text">Tour
+                City is
+                ok</span>
+              <span *ngIf="f.tourCity.touched && f.tourCity.errors  && f.tourCity.errors.required"
+                class="helper-text red-text">Tour City
+                required</span>
+              <span *ngIf="f.tourCity.touched && f.tourCity.errors  && f.tourCity.errors.minlength"
+                class="helper-text red-text">Tour City
+                has to be at least two characters</span>
+            </div>
+            <!-- venue INPUT -->
+            <div class="input-field col s12 m6">
+              <input [attr.disabled]="isExpired ? '' : null" formControlName="tourVenue" id="tour_venue" type="text">
+              <label for="tour_venue" class="active grey-text">Tour Venue</label>
+              <!-- helper texts -->
+              <span *ngIf="f.tourVenue.value  && !f.tourVenue.errors && !isExpired" class="helper-text green-text">Tour
+                Venue is
+                ok</span>
+              <span *ngIf="f.tourVenue.touched && f.tourVenue.errors  && f.tourVenue.errors.required"
+                class="helper-text red-text">Tour Venue
+                required</span>
+              <span *ngIf="f.tourVenue.touched && f.tourVenue.errors  && f.tourVenue.errors.minlength"
+                class="helper-text red-text">Tour Venue
+                has to be at least two characters</span>
+            </div>
+
+            <!-- link INPUT -->
+            <div class="input-field col s12">
+              <input [attr.disabled]="isExpired ? '' : null" formControlName="ticketLink" id="ticket_link" type="text">
+              <label for="ticket_link" class="active grey-text">Ticket Link</label>
+              <!-- helper texts -->
+              <span *ngIf="f.ticketLink.value  && !f.ticketLink.errors && !isExpired"
+                class="helper-text green-text">Ticket Link is
+                ok</span>
+              <span *ngIf="f.ticketLink.touched && f.ticketLink.errors  && f.ticketLink.errors.required"
+                class="helper-text red-text">Ticket Link
+                required</span>
+              <span *ngIf="f.ticketLink.touched && f.ticketLink.errors  && f.ticketLink.errors.pattern"
+                class="helper-text red-text">Ticket Link
+                has to be the following format: http or https://www.ticketlink.something</span>
+            </div>
+          </div>
+          <!-- Buttons -->
+          <div class="row center grey-text text-lighten-5">
+            <div *ngIf="!isExpired" class="col s12 m4 l4">
+              <a *ngIf="!isCancelled" class="btn grey darken-4 orange-text text-darken-4"
+                (click)="isCancelled = !isCancelled">Cancel Tour</a>
+              <a *ngIf="isCancelled" class="btn green darken-4" (click)="isCancelled = !isCancelled">Activate
+                Tour</a>
+            </div>
+            <div *ngIf="isExpired" class="col s12 m6 l4 offset-l2">
+              <a class="btn red accent-4" (click)="deleteTour()">Delete Tour</a>
+            </div>
+            <div *ngIf="!isExpired" class="col s12 m4 l4">
+              <button type="button" class="btn grey darken-4" type="submit" name="action">Save Tour</button>
+            </div>
+            <div class="col s12 m4 l4">
+              <a routerLink="/tourmaster/main" class="btn orange darken-4 grey-text text-darken-4">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Helper messages -->
+    <div *ngIf="isExpired" class="card-action">
+      <p class="flow-text center-align">You can not Edit past Tours, only Delete them!!</p>
+    </div>
+    <div *ngIf="!isExpired" class="card-action">
+      <p class="flow-text center-align">You can not Delete future Tours, only Cancel them!</p>
+    </div>
+  </div>
+</div>
+<!-- copyright -->
+<div class="center section copyright grey-text text-lighten-4">
+  <small>kissr &copy; 2019</small>
+</div>

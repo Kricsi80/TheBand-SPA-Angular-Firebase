@@ -1,0 +1,93 @@
+<app-tourmaster-header></app-tourmaster-header>
+
+<!-- Tourmaster add -->
+<div class="container section">
+  <div class="card">
+    <div class="card-content grey lighten-2">
+      <span class="card-title center-align">Add Tour</span>
+      <!-- FORM -->
+      <div class="row">
+        <form [formGroup]="addForm" (ngSubmit)="onSubmit(addForm.value)" class="col s12">
+
+          <div class="row">
+            <!-- DATE INPUT -->
+            <div class="input-field col s12 m6">
+              <input formControlName="tourDate" id="tour_date" type="date">
+              <label for="tour_date" class="grey-text">Tour Date</label>
+              <!-- helper texts -->
+              <span *ngIf="!f.tourDate.touched" class="helper-text">Please enter Tour Date</span>
+              <span *ngIf="f.tourDate.touched  && !f.tourDate.errors" class="helper-text green-text">Tour Date is
+                ok</span>
+              <span *ngIf="f.tourDate.touched && f.tourDate.errors && f.tourDate.errors.ValidateDate"
+                class="helper-text red-text">The date hase to be between tomorrow and 31/12/2029</span>
+              <span *ngIf="f.tourDate.touched && f.tourDate.errors && f.tourDate.errors.required"
+                class="helper-text red-text">Tour Date required</span>
+            </div>
+            <!-- TIME INPUT -->
+            <div class="input-field col s12 m6">
+              <input formControlName="tourTime" id="tour_time" type="time">
+              <label for="tour_time" class="grey-text">Tour Time</label>
+              <!-- helper texts -->
+              <span *ngIf="!f.tourTime.touched" class="helper-text">Please enter Tour Time</span>
+              <span *ngIf="f.tourTime.touched  && !f.tourTime.errors" class="helper-text green-text">Tour Time is
+                ok</span>
+              <span *ngIf="f.tourTime.touched && f.tourTime.errors && f.tourTime.errors.required"
+                class="helper-text red-text">Tour Time required</span>
+            </div>
+            <!-- city INPUT -->
+            <div class="input-field col s12 m6">
+              <input formControlName="tourCity" id="tour_city" type="text">
+              <label for="tour_city" class="grey-text">Tour City</label>
+              <!-- helper texts -->
+              <span *ngIf="!f.tourCity.touched" class="helper-text">Please enter Tour City</span>
+              <span *ngIf="f.tourCity.touched  && !f.tourCity.errors" class="helper-text green-text">Tour City is
+                ok</span>
+              <span *ngIf="f.tourCity.touched && f.tourCity.errors  && f.tourCity.errors.required"
+                class="helper-text red-text">Tour City
+                required</span>
+              <span *ngIf="f.tourCity.touched && f.tourCity.errors  && f.tourCity.errors.minlength"
+                class="helper-text red-text">Tour City
+                has to be at least two characters</span>
+            </div>
+            <!-- venue INPUT -->
+            <div class="input-field col s12 m6">
+              <input formControlName="tourVenue" id="tour_venue" type="text">
+              <label for="tour_venue" class="grey-text">Tour Venue</label>
+              <!-- helper texts -->
+              <span *ngIf="!f.tourVenue.touched" class="helper-text">Please enter Tour Venue</span>
+              <span *ngIf="f.tourVenue.touched  && !f.tourVenue.errors" class="helper-text green-text">Tour Venue is
+                ok</span>
+              <span *ngIf="f.tourVenue.touched && f.tourVenue.errors  && f.tourVenue.errors.required"
+                class="helper-text red-text">Tour Venue
+                required</span>
+              <span *ngIf="f.tourVenue.touched && f.tourVenue.errors  && f.tourVenue.errors.minlength"
+                class="helper-text red-text">Tour Venue
+                has to be at least two characters</span>
+            </div>
+            <!-- link INPUT -->
+            <div class="input-field col s12">
+              <input formControlName="ticketLink" id="ticket_link" type="text">
+              <label for="ticket_link" class="grey-text">Ticket Link</label>
+              <!-- helper texts -->
+              <span *ngIf="!f.ticketLink.touched" class="helper-text">Please enter Ticket Link</span>
+              <span *ngIf="f.ticketLink.touched  && !f.ticketLink.errors" class="helper-text green-text">Ticket Link is
+                ok</span>
+              <span *ngIf="f.ticketLink.touched && f.ticketLink.errors  && f.ticketLink.errors.required"
+                class="helper-text red-text">Ticket Link
+                required</span>
+              <span *ngIf="f.ticketLink.touched && f.ticketLink.errors  && f.ticketLink.errors.pattern"
+                class="helper-text red-text">Ticket Link
+                has to be the following format: https or http://www.ticketlink.something</span>
+            </div>
+          </div>
+          <!-- Buttons -->
+          <button class="btn grey darken-4" type="submit" name="action">Add Tour</button>
+          <a routerLink="/tourmaster/main" class="btn right orange darken-4 grey-text text-darken-4">Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- copyright -->
+  <div class="center section copyright grey-text text-lighten-4">
+    <small>kissr &copy; 2019</small>
+  </div>

@@ -1,0 +1,57 @@
+<app-tourmaster-header></app-tourmaster-header>
+
+<!-- Tourmaster main section -->
+<section class="section section-tourmaster-main">
+  <!-- Add tour button -->
+  <div class="container center-align">
+    <a routerLink="/tourmaster/add" class="btn grey darken-2 grey-text text-lighten-5">Add New Tour</a>
+  </div>
+  <!-- Tour list -->
+  <div class="container tourcontainer grey-text text-lighten-4" *ngIf="tours?.length > 0; else noTours">
+    <div class="row tour-row center" *ngFor="let tour of tours">
+      <div class="col  s6 m4 l2">
+        <p class="">{{getDateFromtourDate(tour.tourDate)}}</p>
+      </div>
+      <div class="col s6 m4 l2 ">
+        <p>{{tour.tourCity}}</p>
+      </div>
+      <div class="col s6 m4 l2 ">
+        <p>{{tour.tourVenue}}</p>
+      </div>
+      <div class="col s6 m4 l2 ">
+        <button *ngIf="tour.isUpdated"
+          class="non_active btn grey darken-4 orange-text text-darken-4 cancel">Changed!</button>
+        <button *ngIf="!tour.isUpdated" class="non_active btn btn-small green darken-4">Original</button>
+      </div>
+      <div class="col s6 m4 l2 ">
+        <button *ngIf="tour.isExpired" class="cancel non_active btn btn-small grey darken-4">Past Tour</button>
+        <button *ngIf="!tour.isExpired" class="non_active btn btn-small green darken-4">Expected</button>
+      </div>
+      <div class="col s6 m4 l2 ">
+        <button *ngIf="tour.isCancelled" class="non_active btn btn-small btn-small orange darken-4">Cancelled</button>
+        <button *ngIf="!tour.isCancelled" class="non_active btn btn-small green darken-4">Scheduled</button>
+      </div>
+      <div class="col s12 ">
+        <a routerLink="/tourmaster/edit/{{tour.id}}" class="btn grey darken-2 grey-text text-lighten-5">Edit Tour</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- IF Tours[] is empty -->
+  <ng-template #noTours>
+    <div class="container  notours ">
+      <div class="overlay">
+        <div class="row ">
+          <div class="col s12">
+            <p class="center-align grey-text text-lighten-4 notourtext">Currently We Have No Ongoing Tours</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <!-- copyright -->
+  <div class="center section copyright grey-text text-lighten-4">
+    <small>kissr &copy; 2019</small>
+  </div>
+
+</section>

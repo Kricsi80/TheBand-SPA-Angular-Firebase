@@ -1,0 +1,5 @@
+/* if tours[].length === 0, prevent white background */
+#outlet-wrapper {
+  min-height: 100vh;
+  background-color: #212121;
+}
